@@ -1,0 +1,14 @@
+---
+- name : Copy running-config t0 init.cfg on Flash
+  hosts : all
+  gather_facts : no
+  connection : local
+  tasks:
+  - name : Copy run init.cfg
+    ios_command:
+     commands:
+      - command: 'copy running init.cfg'
+        prompt: 'Destination filename [init.cfg]?'
+        answer: "\r"
+    register: write
+  - debug : var=write.stdout

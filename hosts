@@ -1,0 +1,17 @@
+[router]
+R1.ederg-lab.local  ansible_host=192.168.148.101
+R2.ederg-lab.local  ansible_host=192.168.148.102
+R3.ederg-lab.local  ansible_host=192.168.148.103
+R4.ederg-lab.local  ansible_host=192.168.148.104
+
+[switch]
+SW11.ederg-lab.local  ansible_host=192.168.148.111
+SW12.ederg-lab.local  ansible_host=192.168.148.112
+SW13.ederg-lab.local  ansible_host=192.168.148.113
+SW14.ederg-lab.local  ansible_host=192.168.148.114
+
+[all:vars]
+ansible_user=cisco
+ansible_ssh_pass=Cisco123
+
+[ios]
