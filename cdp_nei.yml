@@ -1,0 +1,16 @@
+---
+- name : Get CDP Neighbors on Routers with raw SSH - Module
+  hosts: router
+  gather_facts : no
+  tasks:
+  - raw : "show cdp nei" 
+    register : cdp
+  - debug: var=cdp.stdout_lines
+
+- name : Get CDP Neighbors on Switches with raw SSH - Module
+  hosts: switch
+  gather_facts : no
+  tasks:
+  - raw : "show cdp nei"
+    register : cdp
+  - debug: var=cdp.stderr_lines  # Print Errors
