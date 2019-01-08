@@ -1,0 +1,9 @@
+[router]
+R1.ederg-lab.local  ansible_host=192.168.148.41
+
+[switch]
+SW11.ederg-lab.local  ansible_host=192.168.148.42
+
+[all:vars]
+ansible_user=cisco
+ansible_ssh_pass=Cisco123

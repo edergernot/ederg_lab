@@ -1,0 +1,11 @@
+---
+- name : IOS-Facts Test to get SerialNumber
+  hosts : all
+  gather_facts : no
+  connection : local
+  tasks:
+  - name : IOS-Facts
+    ios_facts:
+      gather_subset: hardware
+    register : facts
+  - debug : var=ansible_facts.net_serialnum
