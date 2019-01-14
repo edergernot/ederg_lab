@@ -5,4 +5,4 @@ If some things dont work in Linuxsubsystem, I run a Ubuntu Workstation in GNS3 a
 Ansible 2.7 run on the subsystem with all my tested playbooks.
 
 I also build a GNS3-LAB an on ESXi which I can reach from an Ubuntu-VM where Ansible is installed.
-Here I have more RAM and so I can larger Labs.
+Here I have more RAM and so I can run larger Labs.
