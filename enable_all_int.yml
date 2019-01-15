@@ -3,20 +3,38 @@
   hosts : all
   gather_facts : no
   connection : local
+  vars:
+    if_name: []
+
   tasks:
   - name : getting IOS-Facts
     ios_facts:
-      gather_subset: hardware
+      gather_subset: interfaces
     register : IOS-facts
-
-  - name : getting Napalm-Facts
-    napalm_get_facts:
-      hostname = {{ inventory_hostname }}
-      username = {{ ansible_user }}
-      dev_os = 'ios'
-      password = {{ ansible_ssh_pass }}
-      filter = 'interfaces'
-    register: Napalm-Facts
     
-  - name: print data
-    debug: var=Napalm-Facts
+  # - name: print Interfaces_dicts
+  #   debug: var=ansible_facts.net_interfaces
+
+  - name: Get Interfaces from Facts
+    set_fact:
+      if_name: "{{ if_name + [item] }}" 
+    with_items : "{{ ansible_facts.net_interfaces }}"
+    register : if_name
+    
+  # - name : print Iterface-List
+  #   debug: 
+  #     msg : "{{ if_name }}"
+
+  - name: Configure "No Shutdown" on all Interfases
+    ios_config:
+      lines: 
+        - "no shutdown"
+        - "cdp enable"
+      parents: "Interface {{ item }}"
+    with_items: "{{ if_name }}"
+    notify: SafeConfig
+
+  handlers: 
+  - name: SafeConfig
+    ios_config:
+      save_when: modified
