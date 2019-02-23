@@ -1,5 +1,5 @@
 ---
-- name : Copy running-config t0 init.cfg on Flash
+- name : Copy running-config to init.cfg on Flash
   hosts : all
   gather_facts : no
   connection : local

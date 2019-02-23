@@ -1,22 +1,32 @@
+
 ---
 - name : Enable All Physical Interfaces
   hosts : all
   gather_facts : no
   connection : local
   tasks:
-  - name : getting IOS-Facts
-    ios_facts:
-      gather_subset: hardware
-    register : IOS-facts
+  # - name : getting IOS-Facts
+  #   ios_facts:
+  #     gather_subset: hardware
+  #   register : IOS-facts
 
   - name : getting Napalm-Facts
+    connection : local
     napalm_get_facts:
-      hostname = {{ inventory_hostname }}
-      username = {{ ansible_user }}
-      dev_os = 'ios'
-      password = {{ ansible_ssh_pass }}
-      filter = 'interfaces'
-    register: Napalm-Facts
+      hostname: '{{ ansible_host }}'   # only works with "ansible_host" 
+      username: "{{ ansible_user }}"
+      dev_os: 'ios'
+      password: "{{ ansible_ssh_pass }}"
+      filter: 'interfaces'
+    register: int_facts
     
-  - name: print data
-    debug: var=Napalm-Facts
+  # - name: print data for debugging
+  #   debug: var=int_facts.ansible_facts.napalm_interfaces
+
+  -  name: Enable Interfaces ansd set description
+     ios_config:
+       lines: 
+       - no shutdown
+       - description modified by Ansible
+       parents: "interface {{ item.key }}"
+     loop: "{{int_facts.ansible_facts.napalm_interfaces|dict2items}}"

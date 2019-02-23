@@ -1,4 +1,5 @@
 ---
+
 - name : Get CDP Neighbors on Routers with raw SSH - Module
   hosts: router
   gather_facts : no
