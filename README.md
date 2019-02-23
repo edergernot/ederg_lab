@@ -17,7 +17,8 @@ Here I have more RAM and so I can run larger Labs.
 I use GNS3 because I have been using it for years, when learning new stuff. I also like the possibility to take a packetcapture on every wire within the topology and simulate paketloss and jitter.
 It's so easy to import new Devices into GNS3 with appliances from GNS3 marketplace. ... But now I'm going to stop advertising GNS3.
 
-### My first simple Ansible Playbooks 
+###My first simple Ansible Playbooks 
+
 * **sh_ip_int_br.yml:**
     this will display the output of "show ip int brief"
 
