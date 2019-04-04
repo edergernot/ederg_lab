@@ -1,17 +1,16 @@
 [router]
-R-1.lab-ederg.net  ansible_host=172.30.15.11
-R-2.lab-ederg.net  ansible_host=172.30.15.12
-R-3.lab-ederg.net  ansible_host=172.30.15.13
-R-4.lab-ederg.net  ansible_host=172.30.15.14
+R-1.eder.lab  ansible_host=172.30.15.11
+R-2.eder.lab  ansible_host=172.30.15.12
+R-3.eder.lab  ansible_host=172.30.15.13
+R-4.eder.lab  ansible_host=172.30.15.14
 
 [switch]
-SW-1.lab-ederg.net  ansible_host=172.30.15.21
-SW-2.lab-ederg.net  ansible_host=172.30.15.22
-SW-3.lab-ederg.net  ansible_host=172.30.15.23
-SW-4.lab-ederg.net  ansible_host=172.30.15.24
+SW-1.eder.lab  ansible_host=172.30.15.21
+SW-2.eder.lab  ansible_host=172.30.15.22
+SW-3.eder.lab  ansible_host=172.30.15.23
+SW-4.eder.lab  ansible_host=172.30.15.24
 
 [all:vars]
 ansible_user=cisco
 ansible_ssh_pass=Cisco123
 
-[ios]

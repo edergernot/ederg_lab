@@ -1,0 +1,19 @@
+---
+hostname: R-4
+interfaces :
+  - loopback0:
+    ip_address : 4.4.4.4
+    netmask : 255.255.255.255
+  - GigabitEthernet0/1:
+    description : To Switch 1
+    ip_adress : 10.4.1.4
+    netmask : 255.255.255.0
+  - GigabitEthernet0/2:
+    description : To R3
+    ip_adress : 10.3.4.4
+    netmask : 255.255.255.0
+  - GigabitEthernet0/11:
+    description : Management
+    ip_adress : 172.30.15.14
+    netmask : 255.255.255.0
+router_id: 4.4.4.4

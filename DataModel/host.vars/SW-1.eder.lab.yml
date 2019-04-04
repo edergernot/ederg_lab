@@ -1,0 +1,11 @@
+---
+hostname: SW-1
+interfaces :
+  - GigabitEthernet3/3:
+    description : Management
+    ip_adress : 172.30.15.21
+    netmask : 255.255.255.0
+  - GigabitEthernet0/1:
+    description : To R-1
+    ip_adress : 10.1.1.21
+    netmask : 255.255.255.0
