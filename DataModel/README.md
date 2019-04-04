@@ -9,11 +9,11 @@ I want to bulid a Internet Service for my 4 Linxus Host which gets the IP-Addres
 
 ### Prepair Infrastructur
 * configure loopback interfaces on the routers
-* configure vlans for the linux hosts connected on the switches
 * run ospf, originate default route
 * create NAT-Policy
 
 ### Service for the Clients
+* configure vlans for the linux hosts connected on the switches
 * Prepair DHCP-Pools (1 Pool per Host)
 * Configure Router Interfaces matching that pools
 * distribute Routes 

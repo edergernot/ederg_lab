@@ -7,5 +7,3 @@ interfaces :
     netmask : 255.255.255.0
   - GigabitEthernet0/1:
     description : To R-1
-    ip_adress : 10.1.1.21
-    netmask : 255.255.255.0
