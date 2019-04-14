@@ -1,0 +1,20 @@
+---
+hostname: R-1
+interfaces :
+  - name : loopback0
+    description: For OSPF Router-ID
+    ip_address : 1.1.1.1
+  - name : GigabitEthernet0/1
+    description : To Switch 1
+    ip_address : 10.1.1.1
+    netmask : 255.255.255.0
+  - name : GigabitEthernet0/2
+    description : To R2
+    ip_address : 10.1.2.1
+    netmask : 255.255.255.0
+  - name : GigabitEthernet0/11
+    description : Management
+    ip_address : 172.30.15.11
+    netmask : 255.255.255.0
+router_id: 1.1.1.1
+

@@ -1,0 +1,8 @@
+---
+domain_name : eder.lab
+ntp_server : 193.170.62.252
+dns_server : 8.8.8.8
+config_dir : "./configs"
+template_dir : "./templates"
+ansible_user : cisco
+ansible_ssh_pass : Cisco123

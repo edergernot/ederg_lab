@@ -1,0 +1,15 @@
+---
+- name : Generate Config for Routers
+  hosts: router
+  connection : local
+  gather_facts : no
+  tasks: 
+    - file : path={{config_dir}}   state=absent
+      name : Remove existing Config Directory 
+      run_once: True
+    - file : path={{config_dir}}   state=directory
+      name : Create Config Directory 
+      run_once: True
+    - template : src={{template_dir}}/router_infra.j2 
+                 dest={{config_dir}}/{{inventory_hostname}}_infra.txt
+      name : Generate infrastructure config

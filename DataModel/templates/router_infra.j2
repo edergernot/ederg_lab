@@ -1,0 +1,20 @@
+hostname {{hostname}}
+ip domain name {{domain_name}}
+ip name-server {{dns_server}}
+ntp server {{ntp_server}}
+no banner incoming
+no banner exec
+no banner login
+{% for int in interfaces %}
+interface {{int.name}}
+description {{int.description}}
+ip address {{int.ip_address}} {{int.netmask|default("255.255.255.255")}}
+no shutdown
+{% endfor %}
+router ospf 1
+router-id {{router_id}}
+network 0.0.0.0 255.255.255.255 area 0.0.0.0
+passive-interface default
+{% for int in interfaces %}
+no passive-interface  {{int.name}}
+{% endfor %}
