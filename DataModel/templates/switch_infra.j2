@@ -1,0 +1,35 @@
+hostname {{hostname}}
+ip domain name {{domain_name}}
+ip name-server {{dns_server}}
+ntp server {{ntp_server}}
+no banner incoming
+no banner exec
+no banner login
+spanning- tree mode rapid-pvst
+vtp mode transparent
+{% for vlan in vlans %}
+ vlan {{vlan.id}}
+ name {{vlan.name}}
+{% endfor %}
+for {% for int in interfaces %}
+interface {{int.name}}
+ description {{int.description}}
+{% if 'ip_address' in int %}
+ ip address {{int.ip_address}} {{int.netmask}}
+{% endif %}
+ no shutdown
+{% endfor %}
+{% for channel in portchannels %}
+interface portchannel {{channel.channel}}
+ description {{channel.description}}
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+{% for member in channel['members'] %}
+interface {{member.int}}
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ channel-group {{channel.channel}} mode active
+{% endfor %}
+{% endfor %}

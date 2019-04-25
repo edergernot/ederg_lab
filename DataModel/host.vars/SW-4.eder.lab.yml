@@ -1,9 +1,0 @@
----
-hostname: SW-4
-interfaces :
-  - GigabitEthernet3/3:
-    description : Management
-    ip_adress : 172.30.15.24
-    netmask : 255.255.255.0
-  - GigabitEthernet0/1:
-    description : To R-4

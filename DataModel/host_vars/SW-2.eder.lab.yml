@@ -1,15 +1,23 @@
 ---
-hostname: SW-1
+hostname: SW-2
 interfaces :
   - name : GigabitEthernet3/3
     description : Management
-    ip_address : 172.30.15.21
+    ip_address : 172.30.15.22
     netmask : 255.255.255.0
   - name : GigabitEthernet0/1
     description : To R-1
+    vlan : 102
 portchannels :
   - channel: 1
-    description: To Sw-2
+    description: To Sw-1
     members :
       - int : GigabitEthernet1/0
       - int : GigabitEthernet1/1
+  - channel : 2
+    description: To Sw-3
+    members :
+      - int : GigabitEthernet1/2
+      - int : GigabitEthernet1/3
+routerport :
+  - port : GigabitEthernet 0/1

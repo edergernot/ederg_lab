@@ -1,0 +1,64 @@
+hostname SW-3
+ip domain name eder.lab
+ip name-server 8.8.8.8
+ntp server 193.170.62.252
+no banner incoming
+no banner exec
+no banner login
+spanning- tree mode rapid-pvst
+vtp mode transparent
+ vlan 1
+ name default
+ vlan 10
+ name Router-Link-1
+ vlan 11
+ name Router-Link-2
+ vlan 12
+ name Router-Link-3
+ vlan 13
+ name Router-Link-4
+ vlan 101
+ name Client_Net-1
+ vlan 102
+ name Client_Net-2
+ vlan 103
+ name Client_Net-3
+ vlan 104
+ name Client_Net-4
+for interface GigabitEthernet3/3
+ description Management
+ ip address 172.30.15.23 255.255.255.0
+ no shutdown
+interface GigabitEthernet0/1
+ description To R-1
+ no shutdown
+interface portchannel 1
+ description To Sw-4
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+interface GigabitEthernet1/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ channel-group 1 mode active
+interface GigabitEthernet1/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ channel-group 1 mode active
+interface portchannel 2
+ description To Sw-2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+interface GigabitEthernet1/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ channel-group 2 mode active
+interface GigabitEthernet1/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ channel-group 2 mode active

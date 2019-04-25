@@ -1,0 +1,20 @@
+---
+vlans:
+- id : 1
+  name : default
+- id : 11
+  name : Router-Link-1
+- id : 12
+  name : Router-Link-2
+- id : 13
+  name : Router-Link-3
+- id : 14
+  name : Router-Link-4
+- id : 101 
+  name : Client_Net-1
+- id : 102 
+  name : Client_Net-2
+- id : 103 
+  name : Client_Net-3
+- id : 104
+  name : Client_Net-4

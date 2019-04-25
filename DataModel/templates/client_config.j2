@@ -1,0 +1,16 @@
+{% for client in clients %}
+{% if {{inventory_hostname}} in client['device'] %}
+interface {{client.interface}}
+description {{client.name}}
+no shutdown
+{% if {{group_names}} == "router" %}
+ip address 10.100.{{client.vlan}}.1 255.255.255.0
+ospf area 0.0.0.0
+ip dhcp pool {{client.vlan}}
+network 10.100.{{client.vlan}}.0 255.255.255.0
+dns-server {{dns_server}}
+default-router 10.100.{{client.vlan}}.1
+domain-name {{domain_name}}
+{% else %}
+switchport access vlan {{client.vlan}}
+{% endif %}

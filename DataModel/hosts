@@ -10,7 +10,4 @@ SW-2.eder.lab  ansible_host=172.30.15.22
 SW-3.eder.lab  ansible_host=172.30.15.23
 SW-4.eder.lab  ansible_host=172.30.15.24
 
-[all:vars]
-ansible_user=cisco
-ansible_ssh_pass=Cisco123
 

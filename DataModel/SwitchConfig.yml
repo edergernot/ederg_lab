@@ -1,12 +1,11 @@
 ---
-- name : Generate Config for Routers
-  hosts: router
+- name : Generate Config for Switches
+  hosts: switch
   connection : local
   gather_facts : no
   tasks: 
     - file : path={{config_dir}}/{{inventory_hostname}}   state=directory
       name : Create Config Directory if not present
-      run_once: True
-    - template : src={{template_dir}}/router_infra.j2 
+    - template : src={{template_dir}}/switch_infra.j2 
                  dest={{config_dir}}/{{inventory_hostname}}/{{inventory_hostname}}_infra.txt
       name : Generate infrastructure config
