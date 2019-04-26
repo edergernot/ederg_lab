@@ -6,7 +6,6 @@
   tasks: 
     - file : path={{config_dir}}/{{inventory_hostname}}   state=directory
       name : Create Config Directory if not present
-      run_once: True
     - template : src={{template_dir}}/router_infra.j2 
                  dest={{config_dir}}/{{inventory_hostname}}/{{inventory_hostname}}_infra.txt
-      name : Generate infrastructure config
+      name : Generate infrastructure config for Routers

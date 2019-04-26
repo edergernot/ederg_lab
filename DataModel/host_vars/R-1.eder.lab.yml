@@ -8,6 +8,26 @@ interfaces :
     description : To Switch 1
     ip_address : 10.1.1.1
     netmask : 255.255.255.0
+  - name : GigabitEthernet0/1.101
+    description : To Switch 1 vlan 101
+    vlan : 101
+    ip_address : 10.100.101.1
+    netmask : 255.255.255.0
+  - name : GigabitEthernet0/1.102
+    description : To Switch 1 vlan 102
+    vlan : 102
+    ip_address : 10.100.102.1
+    netmask : 255.255.255.0
+  - name : GigabitEthernet0/1.103
+    description : To Switch 1 vlan 103
+    vlan : 103
+    ip_address : 10.100.103.1
+    netmask : 255.255.255.0
+  - name : GigabitEthernet0/1.104
+    description : To Switch 1 vlan 104
+    vlan : 104
+    ip_address : 10.100.104.1
+    netmask : 255.255.255.0
   - name : GigabitEthernet0/2
     description : To R2
     ip_address : 10.1.2.1
@@ -17,4 +37,26 @@ interfaces :
     ip_address : 172.30.15.11
     netmask : 255.255.255.0
 router_id: 1.1.1.1
-
+dhcp : 
+  - vlan : 101
+    dns : 8.8.8.8
+    pool :  10.100.101.0
+    pool_mask: 255.255.255.0
+    gw : 10.100.101.1
+  - vlan : 102
+    dns : 8.8.8.8
+    pool :  10.100.102.0
+    pool_mask: 255.255.255.0
+    gw : 10.100.101.1
+  - vlan : 103
+    dns : 8.8.8.8
+    pool :  10.100.103.0
+    pool_mask: 255.255.255.0
+    gw : 10.100.103.1
+  - vlan : 104
+    dns : 8.8.8.8
+    pool :  10.100.102.0
+    pool_mask: 255.255.255.0
+    gw : 10.100.104.1
+  
+    

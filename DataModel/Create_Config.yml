@@ -1,23 +1,4 @@
 --- 
-- name : Generate Infrastructure Config for Switches 
-  hosts: switch
-  connection : local
-  gather_facts : no
-  tasks: 
-    - file : path={{config_dir}}/{{inventory_hostname}}   state=directory
-      name : Create Config Directory if not present
-    - template : src={{template_dir}}/switch_infra.j2 
-                 dest={{config_dir}}/{{inventory_hostname}}/{{inventory_hostname}}_infra.txt
-      name : Generate infrastructure config for Switches
-
-- name : Generate Infrastructur Config for Routers 
-  hosts: router
-  connection : local
-  gather_facts : no
-  tasks: 
-    - file : path={{config_dir}}/{{inventory_hostname}}   state=directory
-      name : Create Config Directory if not present
-    - template : src={{template_dir}}/router_infra.j2 
-                 dest={{config_dir}}/{{inventory_hostname}}/{{inventory_hostname}}_infra.txt
-      name : Generate infrastructure config for Switches
-             
+  - import_playbook : RouterConfig.yml
+  - import_playbook : SwitchConfig.yml
+  - import_playbook : ClientConfig.yml

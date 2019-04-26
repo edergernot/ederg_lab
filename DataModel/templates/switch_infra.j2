@@ -17,7 +17,10 @@ interface {{int.name}}
 {% if 'ip_address' in int %}
  ip address {{int.ip_address}} {{int.netmask}}
 {% endif %}
- no shutdown
+{% if mode is defined %}
+switchport mode {{ mode }}
+{% endif %}}
+no shutdown
 {% endfor %}
 {% for channel in portchannels %}
 interface portchannel {{channel.channel}}

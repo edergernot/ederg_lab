@@ -1,22 +1,18 @@
 ---
 clients:
-- client1:
-    name : AlpineLinux1
-    device: SW-1.eder.lab
-    interface: GigabitEthernet 0/0
-    vlan : 101
-- client2:
-    name : AlpineLinux2
-    device: SW-4.eder.lab
-    interface: GigabitEthernet 0/0
-    vlan : 104
-- client3:
-    name : AlpineLinux3
-    device: R-1.eder.lab
-    interface: GigabitEthernet 0/0
-    vlan : 11
-- client4:
-    name : AlpineLinux4
-    device: R-4.eder.lab
-    interface: GigabitEthernet 0/0
-    vlan : 14
+  -   name : AlpineLinux1
+      device : SW-1.eder.lab
+      interface : GigabitEthernet 0/0
+      vlan : 101
+  -   name : AlpineLinux2
+      device : SW-4.eder.lab
+      interface : GigabitEthernet 0/0
+      vlan : 104
+  -   name : AlpineLinux3
+      device : R-1.eder.lab
+      interface : GigabitEthernet 0/0
+      vlan : 11
+  -   name : AlpineLinux4
+      device : R-4.eder.lab
+      interface : GigabitEthernet 0/0
+      vlan : 14

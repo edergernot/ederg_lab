@@ -1,0 +1,20 @@
+---
+- name : Generate Config for Ports with Clients
+  hosts: all
+  connection : local
+  gather_facts : no
+  
+  tasks: 
+    - include_vars:
+        file: Linuxclients.yml
+      run_once : True
+      name : Read Client-Data
+
+#    - name: Dump all vars
+#      action: template src=templates/dumpall.j2 dest=/tmp/ansible.all
+
+    - template : src={{template_dir}}/client_config.j2 
+                 dest={{config_dir}}/{{inventory_hostname}}/{{inventory_hostname}}_client.txt
+      name : Generate config for Clientports 
+     
+     

@@ -8,6 +8,14 @@ no banner login
 {% for int in interfaces %}
 interface {{int.name}}
 description {{int.description}}
+{% if int.vlan is defined %}
+encapsulation dot1q {{int.vlan}}
+{% endif %}
+{% if int.nat is defined %}
+ip nat {{int.nat}} 
+{% else %}
+ip nat inside
+{% endif %}
 ip address {{int.ip_address}} {{int.netmask|default("255.255.255.255")}}
 no shutdown
 {% endfor %}
@@ -16,5 +24,11 @@ router-id {{router_id}}
 network 0.0.0.0 255.255.255.255 area 0.0.0.0
 passive-interface default
 {% for int in interfaces %}
+{% if "To R "in int["description"] %}}
 no passive-interface  {{int.name}}
+{% endif %}
 {% endfor %}
+{% if nat is defined %}
+access-list 99 permit any
+ip nat inside source list 99 interface {{ nat_interface }} overload
+{% endif %}

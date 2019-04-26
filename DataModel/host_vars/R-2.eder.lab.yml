@@ -18,6 +18,9 @@ interfaces :
     netmask : 255.255.255.0
   - name : GigabitEthernet0/11
     description : Management
+    nat : outside
     ip_address : 172.30.15.12
     netmask : 255.255.255.0
 router_id: 2.2.2.2
+nat : True
+nat_interface : GigabitEthernet0/11
