@@ -17,3 +17,5 @@ I want to bulid a Internet Service for my 4 Linxus Host which gets the IP-Addres
 * Prepair DHCP-Pools (1 Pool per Host)
 * Configure Router Interfaces matching that pools
 * distribute Routes 
+
+### Found some issues and try to solve with nornir
